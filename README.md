@@ -9,7 +9,7 @@ Farhad Nawaz, Shaoting Peng, Lars Lindemann, Nadia Figueroa, Nikolai Matni, "Rea
 
 ## Dataset
 
-The $\texttt{Data_demos}$ folder contains the trajectory data for all the experiments.
+The $$\texttt{Data_demos}$$ folder contains the trajectory data for all the experiments.
 
 ## Automaton graph and python simulation
 
