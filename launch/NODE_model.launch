@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="tkinter_gui"
+        pkg="franka_interactive_controllers"
+        type="tkinter_gui.py" respawn="false" output="screen"/>
+      
+  <node name="automaton_plan"
+        pkg="franka_interactive_controllers"
+        type="automaton_plan.py" respawn="false" output="screen"/>
+
+  <node name="NODE_model"
+        pkg="franka_interactive_controllers"
+        type="NODE_model.py" respawn="false" output="screen"/>
+
+  <node name="my_visuals"
+        pkg="franka_interactive_controllers"
+        type="my_visuals.py" respawn="false" output="screen"/>
+
+</launch>
