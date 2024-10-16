@@ -9,7 +9,7 @@ Farhad Nawaz, Shaoting Peng, Lars Lindemann, Nadia Figueroa, Nikolai Matni, "Rea
 
 ## Dataset
 
-The **Data Demos** folder contains the trajectory data for all the experiments.
+The **Data Demos** folder contains the trajectory data for all the experiments. We train on this data to learn the Neural ODE models. 
 
 ## Automaton graph and python simulation
 
@@ -22,6 +22,35 @@ The $\texttt{Notebooks}$ folder contains the following two jupyter notebooks.
 
 Follow the [installation instructions](https://github.com/farhadnawaz/CLF-CBF-NODE?tab=readme-ov-file#installation) from our [prior work](https://github.com/farhadnawaz/CLF-CBF-NODE) to setup and [build](https://github.com/farhadnawaz/CLF-CBF-NODE?tab=readme-ov-file#catkin-make) the ROS workspace for both gazebo simulation and real robot implementation on the Franka robot arm. 
 
+### Experiment setup
 
+* Move the files from the **config** and **launch** folder to ``/franka_interactive_controllers/config/`` and ``/franka_interactive_controllers/launch/``, respectively. The **config** folder containts the Neural ODE models (<model>.eqx), reference trajectories (<traj>.npy) and automaton graphs (<graph.dictionary>) for planning.
 
-  
+* For a specific <experiment>, move all the scripts from ``<path-to-scripts>`` to ``/franka_interactive_controllers/scripts/``, where ``<path-to-scripts>``:=``/Gazebo_scripts/<experiment>`` for gazebo simulation, or ``/Lab_PC_scripts/<experiment>`` for real robot implementation. 
+
+* For gazebo, check the launch file ``/franka_interactive_controllers/launch/simulate_panda_gazebo.launch`` for the initial joint configuration of the task you want to run.
+
+### Running the experiment
+
+* In the first terminal, run 
+
+```
+roslaunch franka_interactive_controllers <launch-file> controller:=passiveDS_impedance
+```
+
+where, ``launch-file``:=``simulate_panda_gazebo.launch`` for gazebo simulation, or ``franka_interactive_bringup.launch`` for real robot implementation. We can also change the ``controller`` from ``passiveDS_impedance`` to ``cartesian_twist_impedance``, etc.
+
+* In the second terminal, run 
+
+```
+roslaunch franka_interactive_controllers NODE_model.launch
+```
+
+Change the name of the ROS nodes to ``<node>_SO3.py`` in the launch file for cooking experiment. 
+
+* In the third terminal, run 
+```
+rosrun franka_interactive_controllers cmd_vel.py
+```
+
+Run cmd_vel_SO3.py instead for cooking experiment.
