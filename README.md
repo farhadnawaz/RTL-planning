@@ -26,7 +26,7 @@ Follow the [installation instructions](https://github.com/farhadnawaz/CLF-CBF-NO
 
 * Move the files from the **config** and **launch** folder to ``/franka_interactive_controllers/config/`` and ``/franka_interactive_controllers/launch/``, respectively. The **config** folder containts the Neural ODE models (<model>.eqx), reference trajectories (<traj>.npy) and automaton graphs (<graph.dictionary>) for planning.
 
-* For a specific <experiment>, move all the scripts from ``<path-to-scripts>`` to ``/franka_interactive_controllers/scripts/``, where ``<path-to-scripts>``:=``/Gazebo_scripts/<experiment>`` for gazebo simulation, or ``/Lab_PC_scripts/<experiment>`` for real robot implementation. 
+* For a specific experiment, move all the scripts from ``<path-to-scripts>`` to ``/franka_interactive_controllers/scripts/``, where ``<path-to-scripts>``:=``/Gazebo_scripts/<experiment>`` for gazebo simulation, or ``/Lab_PC_scripts/<experiment>`` for real robot implementation. 
 
 * For gazebo, check the launch file ``/franka_interactive_controllers/launch/simulate_panda_gazebo.launch`` for the initial joint configuration of the task you want to run.
 
